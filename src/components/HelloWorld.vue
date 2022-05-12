@@ -1,10 +1,11 @@
 <template>
-  <div class="hello">
-    <h3>Cashless transactions...</h3>
+  <div>
+ <router-view></router-view>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   props: {
