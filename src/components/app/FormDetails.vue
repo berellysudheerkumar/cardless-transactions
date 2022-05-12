@@ -44,6 +44,16 @@
         </div>
     </div>
 
+    <div class="form-group col-sm-6 mb-3 m-auto">
+      <label for="">Receiver Mobile Number</label><input class="form-control" placeholder="Receiver Mobile Number" type="email" v-model="v$.form.receiverPhoneNumber.$model">
+      <div class="pre-icon os-icon os-icon-email-2-at2"></div>
+      <!-- Error Message -->
+        <div class="input-errors" v-for="(error, index) of v$.form.receiverPhoneNumber.$errors" :key="index">
+          <div class="error-msg">{{ error.$message }}</div>
+        </div>
+    </div>
+
+
    
 
 
@@ -134,6 +144,12 @@ export default {
         },
         senderPhoneNumber:{
           required , senderPhoneNumber_validation:{
+             $validator: validPhoneNumber,
+            $message: 'Invalid Phone Number. '
+          }
+        },
+        receiverPhoneNumber:{
+          required , receiverPhoneNumber_validation:{
              $validator: validPhoneNumber,
             $message: 'Invalid Phone Number. '
           }
