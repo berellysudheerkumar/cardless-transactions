@@ -1,4 +1,4 @@
-# cashless-transactions
+# cardless-transactions
 
 ## Project setup
 ```
