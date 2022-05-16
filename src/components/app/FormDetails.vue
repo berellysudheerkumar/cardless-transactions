@@ -1,29 +1,36 @@
-
 <template>
     <!-- First and Last Name Row -->
     <div class="">
       <div class="col-sm-6 mb-3 m-auto">
-        <div class="form-group">
-          <label for=""> First Name:</label><input class="form-control" placeholder="Enter name" type="text" v-model="v$.form.name.$model">
-          <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+         <div class="page">
+  <label class="field field_v2">
+    <input class="field__input" placeholder="Jane Doe" type="text" v-model="v$.form.name.$model">
+    <span class="field__label-wrap">
+      <span class="field__label">First Name:</span>
+    </span>
+  </label>    
+</div>
+      
           <!-- Error Message -->
           <div class="input-errors" v-for="(error, index) of v$.form.name.$errors" :key="index">
             <div class="error-msg">{{ error.$message }}</div>
           </div>
-        </div>
       </div>
-
       <div class="col-sm-6 mb-3 m-auto">
-        <div class="form-group">
-          <label for="">Account Number:</label><input class="form-control" placeholder="Choose Account number" type="text" v-model="v$.form.accountNumber.$model">
+        <div class="page">
+  <label class="field field_v2">
+    <input class="field__input" placeholder="NL99ABNA123456789" type="text" v-model="v$.form.accountNumber.$model">
+    <span class="field__label-wrap">
+      <span class="field__label">Account Number</span>
+    </span>
+  </label>    
+</div>
+</div>
           <!-- Error Message -->
           <div class="input-errors" v-for="(error, index) of v$.form.accountNumber.$errors" :key="index">
             <div class="error-msg">{{ error.$message }}</div>
           </div>
-        </div>
       </div>
-    </div>
-
 
     <!-- BSN Row -->
     <div class="form-group col-sm-6 mb-3 m-auto">
@@ -52,10 +59,6 @@
           <div class="error-msg">{{ error.$message }}</div>
         </div>
     </div>
-
-
-   
-
 
     <!-- pin and Confirm pin Row -->
     <div>
@@ -108,11 +111,9 @@ export function validPhoneNumber(senderPhoneNumber) {
 }
 
 export default {
-
   setup () {
     return { v$: useVuelidate() }
   },
-
   data() {
     return {
       form: {
@@ -125,6 +126,19 @@ export default {
         confirmPin: '',
       }
     }
+  },
+
+  methods:{
+sendData(){
+  // const { }
+   const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Vue POST Request Example" })
+  };
+  fetch("http://localhost:3000/postTranscation", requestOptions)
+    .then(response => response.json())
+}
   },
 
   validations() {
