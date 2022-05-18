@@ -20,7 +20,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 
@@ -51,7 +51,12 @@ RESET STYLES
 .field__input:focus::-moz-placeholder{
   color: var(--uiFieldPlaceholderColor);
 }
-
+.error-msg {
+  color: red;
+}
+.app-screen {
+  padding-bottom: 20px;
+}
 /*
 =====
 CORE STYLES
